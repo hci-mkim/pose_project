@@ -61,6 +61,9 @@ class BodyPoseEstimator(object):
                 if dictionary['scores'][i] > score_threshold:
                     keypoint = dictionary['keypoints'][i].detach().cpu().squeeze().numpy()
                     keypoints.append(keypoint)
+                else:
+                    print("under score.. :(")
+                    pass
         return np.asarray(keypoints, dtype=np.int32)
     
     @staticmethod
