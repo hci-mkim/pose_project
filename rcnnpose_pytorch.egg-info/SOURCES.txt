@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+rcnnpose/__init__.py
+rcnnpose/estimator.py
+rcnnpose/utils.py
+rcnnpose_pytorch.egg-info/PKG-INFO
+rcnnpose_pytorch.egg-info/SOURCES.txt
+rcnnpose_pytorch.egg-info/dependency_links.txt
+rcnnpose_pytorch.egg-info/requires.txt
+rcnnpose_pytorch.egg-info/top_level.txt

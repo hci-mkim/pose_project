@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: rcnnpose-pytorch
+Version: 0.1.0
+Summary: Mask R-CNN and Keypoint R-CNN wrapper for pose estimation with PyTorch
+Home-page: https://github.com/prasunroy/rcnnpose-pytorch
+Author: Prasun Roy
+Author-email: prasunroy.pr@gmail.com
+License: MIT
+Description: <p align='center'>
+          <img src='https://github.com/prasunroy/rcnnpose-pytorch/raw/master/assets/image_1.jpg' />
+        </p>
+        
+        # RCNNPose PyTorch
+        **Mask R-CNN and Keypoint R-CNN wrapper for pose estimation with PyTorch.**
+        <img align='right' height='100' src='https://github.com/prasunroy/rcnnpose-pytorch/blob/master/assets/logo.png' />
+        
+        ![badge](https://github.com/prasunroy/rcnnpose-pytorch/blob/master/assets/badge_1.svg)
+        ![badge](https://github.com/prasunroy/rcnnpose-pytorch/blob/master/assets/badge_2.svg)
+        
+        ## Installation
+        #### Prerequisites
+        * Install [PyTorch](https://pytorch.org/get-started/locally/) `>= 1.2` with [torchvision](https://pytorch.org/get-started/locally/) `>= 0.4`
+        #### Option 1: Install using pip
+        ```
+        pip install git+https://github.com/prasunroy/rcnnpose-pytorch.git
+        ```
+        #### Option 2: Install from source
+        ```
+        git clone https://github.com/prasunroy/rcnnpose-pytorch.git
+        cd rcnnpose-pytorch
+        python setup.py install
+        ```
+        
+        ## Running examples
+        ```
+        cd examples
+        python image_demo.py
+        python video_demo.py
+        ```
+        
+        ## License
+        * [RCNNPose PyTorch License](https://github.com/prasunroy/rcnnpose-pytorch/blob/master/LICENSE)
+        
+        <br />
+        <br />
+        
+        **Made with** :heart: **and** :pizza:
+        
+Keywords: rcnnpose,pytorch,mask-rcnn,keypoint-rcnn,pose-estimation,keypoint-estimation,computer-vision,machine-learning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
