@@ -62,17 +62,21 @@ def draw_keypoints(image, keypoints, radius=1, alpha=1.0):
 
 def draw_body_connections(image, keypoints, thickness=1, alpha=1.0):
     overlay = image.copy()
-    b_conn = [(3, 5), (4, 6), (5, 11), (6, 12), (11, 12)]
+    b_conn = [(3, 5), (5, 11), (6, 12), (5, 7), (7, 9)]
+    r_conn = [(4, 6), (6, 8), (8, 10), (6, 12)]
     # h_conn = [(0, 1), (0, 2), (1, 3), (2, 4)]
-    l_conn = [(5, 7), (7, 9), (11, 13), (13, 15)]
-    r_conn = [(6, 8), (8, 10), (12, 14), (14, 16)]
+    # l_conn = [(5, 7), (7, 9), (11, 13), (13, 15)]
+    # r_conn = [(6, 8), (8, 10), (12, 14), (14, 16)]
+
+
+
     for kp in keypoints:
         for i, j in b_conn:
             overlay = _draw_connection(overlay, kp[i], kp[j], (0, 255, 255), thickness)
         # for i, j in h_conn:
         #     overlay = _draw_connection(overlay, kp[i], kp[j], (0, 255, 255), thickness)
-        for i, j in l_conn:
-            overlay = _draw_connection(overlay, kp[i], kp[j], (255, 255, 0), thickness)
+        # for i, j in l_conn:
+        #     overlay = _draw_connection(overlay, kp[i], kp[j], (255, 255, 0), thickness)
         for i, j in r_conn:
             overlay = _draw_connection(overlay, kp[i], kp[j], (255, 0, 255), thickness)
     return cv2.addWeighted(overlay, alpha, image, 1.0 - alpha, 0)

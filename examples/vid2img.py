@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 # Video to Image
-path = "./vid2img/"
+path = "./[1]vid2img/"
 file_list = os.listdir(path)
 print("{}".format(file_list))
 
@@ -15,13 +15,13 @@ def getFrame(sec,file_name):
         w = 256
         resized_image = cv2.resize(image, (h, w)).astype(np.float32)
         if count < 10:
-            cv2.imwrite("./inputs/" + file_name +'_0000'+str(count)+".jpg", resized_image)     # save frame as JPG file
+            cv2.imwrite("./[2]inputs/" + file_name +'_0000'+str(count)+".jpg", resized_image)     # save frame as JPG file
         elif count < 100:
-            cv2.imwrite("./inputs/" + file_name +'_000'+str(count)+".jpg", resized_image)     # save frame as JPG file
+            cv2.imwrite("./[2]inputs/" + file_name +'_000'+str(count)+".jpg", resized_image)     # save frame as JPG file
         elif count < 1000:
-            cv2.imwrite("./inputs/" + file_name +'_00'+str(count)+".jpg", resized_image)     # save frame as JPG file
+            cv2.imwrite("./[2]inputs/" + file_name +'_00'+str(count)+".jpg", resized_image)     # save frame as JPG file
         elif count < 10000:
-            cv2.imwrite("./inputs/" + file_name +'_0'+str(count)+".jpg", resized_image)     # save frame as JPG file
+            cv2.imwrite("./[2]inputs/" + file_name +'_0'+str(count)+".jpg", resized_image)     # save frame as JPG file
 
     return hasFrames
 

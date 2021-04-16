@@ -9,10 +9,9 @@ from rcnnpose.estimator import BodyPoseEstimator
 from rcnnpose.utils import draw_body_connections, draw_keypoints, draw_masks
 import math
 import os
-# start = time.time();
+
 estimator = BodyPoseEstimator(pretrained=True);
-# print(f"Estimator Load time : {time.time()-start}\n");
-# times = [];
+
 
 def getAngle(a, b, c):
     ang = math.degrees(math.atan2(c[1]-b[1], c[0]-b[0]) - math.atan2(a[1]-b[1], a[0]-b[0]))
@@ -24,7 +23,8 @@ def main(input_img, outfile):
     pred_dict = estimator(image_src, masks=False, keypoints=True)
     # masks = estimator.get_masks(pred_dict['estimator_m'], score_threshold=0.8)
     keypoints = estimator.get_keypoints(pred_dict['estimator_k'], score_threshold=0.99)
-  
+
+
     if len(keypoints) == 0:
         print("not found");
 #     print(f"masks : {masks}");
@@ -90,12 +90,12 @@ def main(input_img, outfile):
 
         #write down the angle on image
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(image_src,'neck: '+str(round(neck_angle,2)),(160,10), font, 0.3, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image_src,'shoulder_left: '+str(round(sho_l_angle,2)),(160,20), font, 0.3, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image_src,'shoulder_right: '+str(round(sho_r_angle,2)),(160,30), font, 0.3, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image_src,'elbow_left: '+str(round(elb_l_angle,2)),(160,40), font, 0.3, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image_src,'elbow_reft: '+str(round(elb_r_angle,2)),(160,50), font, 0.3, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image_src,'trunk: '+str(round(trunk_angle,2)),(160,60), font, 0.3, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image_src,'neck: '+str(round(neck_angle,2)),(160,10), font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(image_src,'shoulder_left: '+str(round(sho_l_angle,2)),(160,20), font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(image_src,'shoulder_right: '+str(round(sho_r_angle,2)),(160,30), font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(image_src,'elbow_left: '+str(round(elb_l_angle,2)),(160,40), font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(image_src,'elbow_reft: '+str(round(elb_r_angle,2)),(160,50), font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(image_src,'trunk: '+str(round(trunk_angle,2)),(160,60), font, 0.3, (255, 255, 255), 1, cv2.LINE_AA)
 
 
         df_ang = pd.DataFrame({
@@ -112,28 +112,17 @@ def main(input_img, outfile):
         # image_dst = cv2.merge([image_dst] * 3)
         # overlay_m = draw_masks(image_dst, masks, color=(0, 255, 0), alpha=0.5)
         overlay_k = draw_body_connections(image_src, keypoints, thickness=3, alpha=0.7)
-        overlay_k = draw_keypoints(overlay_k, keypoints, radius=5, alpha=1)
+        overlay_k = draw_keypoints(overlay_k, keypoints, radius=1, alpha=1)
         image_dst = overlay_k;
 
         cv2.imwrite(outfile, image_dst);
-    #     print(f"Image {input_img} estimating time : {time.time()-start}\n");
-    #     times.append(time.time()-start);
-        #while True:
-        #    cv2.imshow('Image Demo', image_dst)
-        #    if cv2.waitKey(1) & 0xff == 27: # exit if pressed `ESC`
-        #        break
-    #     cv2.destroyAllWindows();
+
 
 if __name__ == "__main__":
-#     for i in ["5_bg", "11_bg"]:
-    # for i in [5,6,7,9,10,11,12,13]:
-    #     main(f"inputs/{i}.jpg", f"outputs/processed_{i}.png");
-#     print(f"Average time : {sum(times)/len(times)}");
-#     main("media/example3.png", "outputs/processed_standard.png");
 
-    path = "./outputs_background_removed"
+    path = "./[3]outputs_background_removed"
     file_list = os.listdir(path)
 
     for file in file_list:
-        main(f"outputs_background_removed/"+file, f"outputs_keypoint/"+file);
+        main(f"[3]outputs_background_removed/"+file, f"[4]outputs_keypoint/"+file);
 
